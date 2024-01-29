@@ -29,4 +29,4 @@ def test_with_noise():
   noise_data_y[25:45] *= -2
   noise_data_x = noise_data_x.reshape(-1,1)
   noise_data_y = noise_data_y.reshape(-1,1)
-  assert model.score(noise_data_x, noise_data_y) > 0.5, "Низкий уровень предсказани
+  assert model.score(noise_data_x, noise_data_y) > 0.5, "Низкий уровень предсказани"
