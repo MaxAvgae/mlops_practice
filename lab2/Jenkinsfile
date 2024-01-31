@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Create data directory') {
+            steps {
+                sh 'mkdir -p lab2/data'
+            }
+        }
+        stage('Install requirements') {
+            steps {
+                sh 'pip install -r lab2/requirements.txt'
+            }
+        }
+        stage('Run data creation script') {
+            steps {
+                sh 'python3 lab2/data_creation.py'
+            }
+        }
+        stage('Run data preprocessing script') {
+            steps {
+                sh 'python3 lab2/data_preprocessing.py'
+            }
+        }
+        stage('Run model preparation script') {
+            steps {
+                sh 'python3 lab2/model_preparation.py'
+            }
+        }
+        stage('Run model testing script') {
+            steps {
+                sh 'python3 lab2/model_testing.py'
+            }
+        }
+    }
